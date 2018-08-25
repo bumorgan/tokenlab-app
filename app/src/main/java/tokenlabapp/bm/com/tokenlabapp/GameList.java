@@ -12,4 +12,12 @@ public class GameList {
     public List<Game> getGames() {
         return games;
     }
+
+    public int getSize() {
+        return games.size();
+    }
+
+    public Game getGame(int position) {
+        return games.get(position);
+    }
 }
