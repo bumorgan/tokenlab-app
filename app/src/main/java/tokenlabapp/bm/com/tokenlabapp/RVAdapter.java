@@ -24,6 +24,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.GameViewHolder>{
         CardView cardView;
         TextView gameName;
         TextView releaseDate;
+        TextView platforms;
         SmartImageView gameImage;
 
         GameViewHolder(View itemView) {
@@ -31,6 +32,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.GameViewHolder>{
             cardView = (CardView)itemView.findViewById(R.id.cardView);
             gameName = (TextView)itemView.findViewById(R.id.game_name);
             releaseDate = (TextView)itemView.findViewById(R.id.release_date);
+            platforms = (TextView) itemView.findViewById(R.id.platforms);
             gameImage = (SmartImageView)itemView.findViewById(R.id.game_image);
         }
     }
@@ -50,7 +52,8 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.GameViewHolder>{
     @Override
     public void onBindViewHolder(GameViewHolder gameViewHolder, int i) {
         gameViewHolder.gameName.setText(games.get(i).getName());
-        gameViewHolder.releaseDate.setText(games.get(i).getRelease_date());
+        gameViewHolder.releaseDate.setText("Release date: " + games.get(i).getRelease_date());
+        gameViewHolder.platforms.setText("Platforms: " + games.get(i).getPlatforms());
         gameViewHolder.gameImage.setImageUrl(games.get(i).getImage());
     }
 

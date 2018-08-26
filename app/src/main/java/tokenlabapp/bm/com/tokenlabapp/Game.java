@@ -37,7 +37,11 @@ public class Game {
         return trailer;
     }
 
-    public String[] getPlatforms() {
-        return platforms;
+    public String getPlatforms() {
+        String stringPlatforms = "";
+        for (String p : platforms) {
+            stringPlatforms += p + " ";
+        }
+        return stringPlatforms;
     }
 }
