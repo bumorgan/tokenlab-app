@@ -1,14 +1,16 @@
 package tokenlabapp.bm.com.tokenlabapp;
 
+import java.util.List;
+
 public class Game {
     private String id;
     private String name;
     private String image;
     private String release_date;
     private String trailer;
-    private String[] platforms;
+    private List<String> platforms;
 
-    public Game(String id, String name, String image, String release_date, String trailer, String[] platforms) {
+    public Game(String id, String name, String image, String release_date, String trailer, List<String> platforms) {
         this.id = id;
         this.name = name;
         this.image = image;

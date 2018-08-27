@@ -20,7 +20,6 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.GameViewHolder>{
     }
 
     public static class GameViewHolder extends RecyclerView.ViewHolder {
-        CardView cardView;
         TextView gameName;
         TextView releaseDate;
         TextView platforms;
@@ -28,7 +27,6 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.GameViewHolder>{
 
         GameViewHolder(View itemView) {
             super(itemView);
-            cardView = itemView.findViewById(R.id.cardView);
             gameName = itemView.findViewById(R.id.game_name);
             releaseDate = itemView.findViewById(R.id.release_date);
             platforms = itemView.findViewById(R.id.platforms);
