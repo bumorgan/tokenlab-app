@@ -2,12 +2,11 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="400sp"
+    android:layout_height="400dp"
     android:padding="5dp">
 
     <android.support.v7.widget.CardView
         android:id="@+id/cardView"
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -20,7 +19,7 @@
             <com.loopj.android.image.SmartImageView
                 android:id="@+id/game_image"
                 android:layout_width="match_parent"
-                android:layout_height="250sp"
+                android:layout_height="250dp"
                 android:scaleType="centerCrop"/>
 
             <LinearLayout
@@ -33,7 +32,7 @@
                     android:id="@+id/game_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="25sp"/>
+                    android:textSize="25dp"/>
 
                 <TextView
                     android:id="@+id/release_date"
@@ -47,7 +46,7 @@
 
             </LinearLayout>
             
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -55,9 +54,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/action_trailer"
-                    android:theme="@style/PrimaryFlatButton" />
+                    android:theme="@style/PrimaryFlatButton"
+                    android:layout_alignParentRight="true"/>
 
-            </LinearLayout>
+            </RelativeLayout>
 
         </LinearLayout>
 

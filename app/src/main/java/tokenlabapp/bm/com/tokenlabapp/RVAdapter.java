@@ -5,7 +5,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.loopj.android.image.SmartImageView;
@@ -29,11 +28,11 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.GameViewHolder>{
 
         GameViewHolder(View itemView) {
             super(itemView);
-            cardView = (CardView)itemView.findViewById(R.id.cardView);
-            gameName = (TextView)itemView.findViewById(R.id.game_name);
-            releaseDate = (TextView)itemView.findViewById(R.id.release_date);
-            platforms = (TextView) itemView.findViewById(R.id.platforms);
-            gameImage = (SmartImageView)itemView.findViewById(R.id.game_image);
+            cardView = itemView.findViewById(R.id.cardView);
+            gameName = itemView.findViewById(R.id.game_name);
+            releaseDate = itemView.findViewById(R.id.release_date);
+            platforms = itemView.findViewById(R.id.platforms);
+            gameImage = itemView.findViewById(R.id.game_image);
         }
     }
 
@@ -51,10 +50,18 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.GameViewHolder>{
 
     @Override
     public void onBindViewHolder(GameViewHolder gameViewHolder, int i) {
-        gameViewHolder.gameName.setText(games.get(i).getName());
-        gameViewHolder.releaseDate.setText("Release date: " + games.get(i).getRelease_date());
-        gameViewHolder.platforms.setText("Platforms: " + games.get(i).getPlatforms());
-        gameViewHolder.gameImage.setImageUrl(games.get(i).getImage());
+        if (games.get(i).getName() != null) {
+            gameViewHolder.gameName.setText(games.get(i).getName());
+        }
+        if (games.get(i).getRelease_date() != null) {
+            gameViewHolder.releaseDate.setText("Release date: " + games.get(i).getRelease_date());
+        }
+        if (games.get(i).getPlatforms() != null) {
+            gameViewHolder.platforms.setText("Platforms: " + games.get(i).getPlatforms());
+        }
+        if (games.get(i).getImage() != null) {
+            gameViewHolder.gameImage.setImageUrl(games.get(i).getImage());
+        }
     }
 
     @Override

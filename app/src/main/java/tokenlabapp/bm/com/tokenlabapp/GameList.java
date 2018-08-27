@@ -16,8 +16,4 @@ public class GameList {
     public int getSize() {
         return games.size();
     }
-
-    public Game getGame(int position) {
-        return games.get(position);
-    }
 }

@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.widget.Toast;
 
 import retrofit2.Call;
@@ -15,18 +14,18 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
-    private RecyclerView rv;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        rv = (RecyclerView)findViewById(R.id.rv);
-        rv.setHasFixedSize(true);
+        recyclerView = findViewById(R.id.rv);
+        recyclerView.setHasFixedSize(true);
 
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        rv.setLayoutManager(llm);
+//        LinearLayoutManager llm = new LinearLayoutManager(this);
+//        recyclerView.setLayoutManager(llm);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Api.BASE_URL)
@@ -42,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<GameList> call, Response<GameList> response) {
                 GameList games = response.body();
                 RVAdapter adapter = new RVAdapter(games.getGames());
-                rv.setAdapter(adapter);
+                recyclerView.setAdapter(adapter);
 //                for(Game g: games.getGames()) {
 //                    Log.d("id", g.getId());
 //                    Log.d("name", g.getName());
