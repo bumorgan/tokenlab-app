@@ -1,13 +1,27 @@
 package tokenlabapp.bm.com.tokenlabapp;
 
+import android.app.Dialog;
+import android.content.Intent;
+import android.graphics.PixelFormat;
+import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.loopj.android.image.SmartImageView;
+import com.google.android.youtube.player.YouTubeInitializationResult;
+import com.google.android.youtube.player.YouTubePlayer;
+import com.google.android.youtube.player.YouTubePlayerView;
+import com.pierfrancescosoffritti.androidyoutubeplayer.player.listeners.AbstractYouTubePlayerListener;
+import com.pierfrancescosoffritti.androidyoutubeplayer.player.listeners.YouTubePlayerInitListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -20,17 +34,31 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.GameViewHolder>{
     }
 
     public static class GameViewHolder extends RecyclerView.ViewHolder {
-        TextView gameName;
-        TextView releaseDate;
-        TextView platforms;
-        SmartImageView gameImage;
+        private TextView gameName;
+        private TextView releaseDate;
+        private TextView platforms;
+        private ImageView gameImage;
+        private Button trailerButton;
 
-        GameViewHolder(View itemView) {
+        GameViewHolder(final View itemView) {
             super(itemView);
             gameName = itemView.findViewById(R.id.game_name);
             releaseDate = itemView.findViewById(R.id.release_date);
             platforms = itemView.findViewById(R.id.platforms);
             gameImage = itemView.findViewById(R.id.game_image);
+            trailerButton = itemView.findViewById(R.id.trailer_button);
+        }
+        public TextView getGameName() {
+            return gameName;
+        }
+        public TextView getReleaseDate() {
+            return releaseDate;
+        }
+        public TextView getPlatforms() {
+            return platforms;
+        }
+        public ImageView getGameImage() {
+            return gameImage;
         }
     }
 
@@ -47,18 +75,44 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.GameViewHolder>{
     }
 
     @Override
-    public void onBindViewHolder(GameViewHolder gameViewHolder, int i) {
-        if (games.get(i).getName() != null) {
-            gameViewHolder.gameName.setText(games.get(i).getName());
-        }
-        if (games.get(i).getRelease_date() != null) {
-            gameViewHolder.releaseDate.setText("Release date: " + games.get(i).getRelease_date());
-        }
-        if (games.get(i).getPlatforms() != null) {
-            gameViewHolder.platforms.setText("Platforms: " + games.get(i).getPlatforms());
-        }
-        if (games.get(i).getImage() != null) {
-            gameViewHolder.gameImage.setImageUrl(games.get(i).getImage());
+    public void onBindViewHolder(final GameViewHolder gameViewHolder, final int i) {
+        if (games.get(i).getName() != null)
+            gameViewHolder.getGameName().setText(games.get(i).getName());
+        if (games.get(i).getRelease_date() != null)
+            gameViewHolder.getReleaseDate().setText("Release date: " + games.get(i).getRelease_date());
+        if (games.get(i).getPlatforms() != null)
+            gameViewHolder.getPlatforms().setText("Platforms: " + games.get(i).getPlatforms());
+        if (games.get(i).getImage() != null)
+            Picasso.get()
+                    .load(games.get(i).getImage())
+                    .error(R.drawable.imagenotfound)
+                    .into(gameViewHolder.getGameImage());
+        if (games.get(i).getTrailer() != null) {
+            gameViewHolder.trailerButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Dialog dialog = new Dialog(v.getContext());
+                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    dialog.setContentView(R.layout.layout_trailer);
+                    Window dialogWindow = dialog.getWindow();
+                    WindowManager.LayoutParams lp = dialogWindow.getAttributes();
+                    lp.width = ViewGroup.LayoutParams.MATCH_PARENT;
+                    dialogWindow.setAttributes(lp);
+                    dialog.show();
+                    com.pierfrancescosoffritti.androidyoutubeplayer.player.YouTubePlayerView youTubePlayerView = dialog.findViewById(R.id.youtube_player_view);
+                    youTubePlayerView.initialize(new YouTubePlayerInitListener() {
+                        @Override
+                        public void onInitSuccess(@NonNull final com.pierfrancescosoffritti.androidyoutubeplayer.player.YouTubePlayer youTubePlayer) {
+                            youTubePlayer.addListener(new AbstractYouTubePlayerListener() {
+                                @Override
+                                public void onReady() {
+                                    youTubePlayer.loadVideo(games.get(i).getTrailer().split("=")[1],0);
+                                }
+                            });
+                        }
+                    }, true);
+                }
+            });
         }
     }
 

@@ -12,8 +12,4 @@ public class GameList {
     public List<Game> getGames() {
         return games;
     }
-
-    public int getSize() {
-        return games.size();
-    }
 }
