@@ -1,24 +1,14 @@
 package tokenlabapp.bm.com.tokenlabapp;
 
 import android.app.Dialog;
-import android.content.Intent;
-import android.graphics.PixelFormat;
-import android.net.Uri;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.google.android.youtube.player.YouTubeInitializationResult;
-import com.google.android.youtube.player.YouTubePlayer;
-import com.google.android.youtube.player.YouTubePlayerView;
 import com.pierfrancescosoffritti.androidyoutubeplayer.player.listeners.AbstractYouTubePlayerListener;
 import com.pierfrancescosoffritti.androidyoutubeplayer.player.listeners.YouTubePlayerInitListener;
 import com.squareup.picasso.Picasso;
@@ -27,7 +17,7 @@ import java.util.List;
 
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.GameViewHolder>{
 
-    List<Game> games;
+    private List<Game> games;
 
     RVAdapter(List<Game> games){
         this.games = games;
@@ -92,12 +82,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.GameViewHolder>{
                 @Override
                 public void onClick(View v) {
                     Dialog dialog = new Dialog(v.getContext());
-                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
                     dialog.setContentView(R.layout.layout_trailer);
-                    Window dialogWindow = dialog.getWindow();
-                    WindowManager.LayoutParams lp = dialogWindow.getAttributes();
-                    lp.width = ViewGroup.LayoutParams.MATCH_PARENT;
-                    dialogWindow.setAttributes(lp);
                     dialog.show();
                     com.pierfrancescosoffritti.androidyoutubeplayer.player.YouTubePlayerView youTubePlayerView = dialog.findViewById(R.id.youtube_player_view);
                     youTubePlayerView.initialize(new YouTubePlayerInitListener() {
