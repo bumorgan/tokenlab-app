@@ -1,6 +1,5 @@
 package tokenlabapp.bm.com.tokenlabapp.fragment;
 
-
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -21,10 +20,6 @@ import tokenlabapp.bm.com.tokenlabapp.adapter.RVAdapter;
 import tokenlabapp.bm.com.tokenlabapp.model.GameList;
 import tokenlabapp.bm.com.tokenlabapp.service.GameService;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
 public class HomeFragment extends Fragment {
 
     private RecyclerView recyclerView;
@@ -35,7 +30,6 @@ public class HomeFragment extends Fragment {
     public HomeFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -71,7 +65,7 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onFailure(Call<GameList> call, Throwable t) {
-                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Game data request failed", Toast.LENGTH_LONG).show();
             }
         });
     }

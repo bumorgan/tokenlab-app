@@ -68,6 +68,7 @@ public class UserFragment extends Fragment {
                 if (user.getAvatar() != null)
                     Picasso.get()
                             .load(user.getAvatar())
+                            .placeholder(R.drawable.loading)
                             .error(R.drawable.imagenotfound)
                             .into(userImage);
                 if (user.getName() != null) {
@@ -77,7 +78,7 @@ public class UserFragment extends Fragment {
                     userEmail.setText("E-mail: " + user.getEmail());
                 }
                 if (user.getBirthday() != null) {
-                    userBirthday.setText("Birthday: " + user.getBirthday());
+                    userBirthday.setText("Birthday: " + user.getBirthday().split("T")[0]);
                 }
                 if (user.getAddress() != null) {
                     userAddress.setText("Address: " + user.getAddress());
@@ -89,7 +90,7 @@ public class UserFragment extends Fragment {
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                Toast.makeText(getContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "User data request failed", Toast.LENGTH_LONG).show();
             }
         });
 

@@ -79,6 +79,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.GameViewHolder>{
         if (games.get(i).getImage() != null)
             Picasso.get()
                     .load(games.get(i).getImage())
+                    .placeholder(R.drawable.loading)
                     .error(R.drawable.imagenotfound)
                     .into(gameViewHolder.getGameImage());
         if (games.get(i).getTrailer() != null) {

@@ -11,6 +11,9 @@ import tokenlabapp.bm.com.tokenlabapp.fragment.HomeFragment;
 import tokenlabapp.bm.com.tokenlabapp.R;
 import tokenlabapp.bm.com.tokenlabapp.fragment.UserFragment;
 
+/**
+ * Created by Bruno Morgan on August 30th, 2018
+ */
 public class MainActivity extends AppCompatActivity {
 
     private BottomNavigationView bottomNavigationView;
