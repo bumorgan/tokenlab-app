@@ -1,4 +1,4 @@
-package tokenlabapp.bm.com.tokenlabapp;
+package tokenlabapp.bm.com.tokenlabapp.model;
 
 import java.util.List;
 

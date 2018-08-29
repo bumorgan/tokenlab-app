@@ -1,4 +1,4 @@
-package tokenlabapp.bm.com.tokenlabapp;
+package tokenlabapp.bm.com.tokenlabapp.fragment;
 
 
 import android.os.Bundle;
@@ -16,6 +16,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import tokenlabapp.bm.com.tokenlabapp.R;
+import tokenlabapp.bm.com.tokenlabapp.adapter.RVAdapter;
+import tokenlabapp.bm.com.tokenlabapp.model.GameList;
+import tokenlabapp.bm.com.tokenlabapp.service.GameService;
 
 
 /**
@@ -25,7 +29,7 @@ public class HomeFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private Retrofit retrofit;
-    private Api api;
+    private GameService gameService;
     private Call<GameList> call;
 
     public HomeFragment() {
@@ -47,20 +51,22 @@ public class HomeFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
 
         retrofit = new Retrofit.Builder()
-                .baseUrl(Api.BASE_GAMES_URL)
+                .baseUrl(GameService.BASE_GAMES_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        api = retrofit.create(Api.class);
+        gameService = retrofit.create(GameService.class);
 
-        call = api.getGames();
+        call = gameService.getGames();
 
         call.enqueue(new Callback<GameList>() {
             @Override
             public void onResponse(Call<GameList> call, Response<GameList> response) {
                 GameList games = response.body();
-                RVAdapter adapter = new RVAdapter(games.getGames());
-                recyclerView.setAdapter(adapter);
+                if (games.getGames() != null) {
+                    RVAdapter adapter = new RVAdapter(games.getGames());
+                    recyclerView.setAdapter(adapter);
+                }
             }
 
             @Override

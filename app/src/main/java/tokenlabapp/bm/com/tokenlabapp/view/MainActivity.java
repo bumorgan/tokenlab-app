@@ -1,4 +1,4 @@
-package tokenlabapp.bm.com.tokenlabapp;
+package tokenlabapp.bm.com.tokenlabapp.view;
 
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -6,6 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+
+import tokenlabapp.bm.com.tokenlabapp.fragment.HomeFragment;
+import tokenlabapp.bm.com.tokenlabapp.R;
+import tokenlabapp.bm.com.tokenlabapp.fragment.UserFragment;
 
 public class MainActivity extends AppCompatActivity {
 

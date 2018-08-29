@@ -1,4 +1,4 @@
-package tokenlabapp.bm.com.tokenlabapp;
+package tokenlabapp.bm.com.tokenlabapp.adapter;
 
 import android.app.Dialog;
 import android.support.annotation.NonNull;
@@ -16,11 +16,14 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import tokenlabapp.bm.com.tokenlabapp.model.Game;
+import tokenlabapp.bm.com.tokenlabapp.R;
+
 public class RVAdapter extends RecyclerView.Adapter<RVAdapter.GameViewHolder>{
 
     private List<Game> games;
 
-    RVAdapter(List<Game> games){
+    public RVAdapter(List<Game> games){
         this.games = games;
     }
 

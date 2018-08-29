@@ -1,4 +1,4 @@
-package tokenlabapp.bm.com.tokenlabapp;
+package tokenlabapp.bm.com.tokenlabapp.fragment;
 
 
 import android.os.Bundle;
@@ -19,6 +19,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import tokenlabapp.bm.com.tokenlabapp.R;
+import tokenlabapp.bm.com.tokenlabapp.model.User;
+import tokenlabapp.bm.com.tokenlabapp.service.GameService;
+import tokenlabapp.bm.com.tokenlabapp.service.UserService;
 
 
 /**
@@ -27,7 +31,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class UserFragment extends Fragment {
 
     private Retrofit retrofit;
-    private Api api;
+    private UserService userService;
     private Call<User> call;
 
     private ImageView userImage;
@@ -49,13 +53,13 @@ public class UserFragment extends Fragment {
         userCity = view.findViewById(R.id.userCity);
 
         retrofit = new Retrofit.Builder()
-                .baseUrl(Api.BASE_USER_URL)
+                .baseUrl(UserService.BASE_USER_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        api = retrofit.create(Api.class);
+        userService = retrofit.create(UserService.class);
 
-        call = api.getUser();
+        call = userService.getUser();
 
         call.enqueue(new Callback<User>() {
             @Override
