@@ -3,6 +3,7 @@ package tokenlabapp.bm.com.tokenlabapp;
 import android.app.Dialog;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,7 +72,7 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.GameViewHolder>{
         if (games.get(i).getRelease_date() != null)
             gameViewHolder.getReleaseDate().setText("Release date: " + games.get(i).getRelease_date());
         if (games.get(i).getPlatforms() != null)
-            gameViewHolder.getPlatforms().setText("Platforms: " + games.get(i).getPlatforms());
+            gameViewHolder.getPlatforms().setText("Platforms: " + TextUtils.join(", ", games.get(i).getPlatforms()));
         if (games.get(i).getImage() != null)
             Picasso.get()
                     .load(games.get(i).getImage())
