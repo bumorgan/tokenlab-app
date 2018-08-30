@@ -15,8 +15,6 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
-import java.text.SimpleDateFormat;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
