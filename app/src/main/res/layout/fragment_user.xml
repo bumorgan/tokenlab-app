@@ -9,6 +9,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp">
+        <ProgressBar
+            android:id="@+id/userProgressBar"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -25,6 +30,7 @@
                 android:layout_height="match_parent">
                 <TextView
                     android:id="@+id/userName"
+                    android:textColor="@color/colorAccent"
                     android:textSize="25dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />

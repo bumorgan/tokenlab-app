@@ -10,15 +10,6 @@ public class Game {
     private String trailer;
     private List<String> platforms;
 
-    public Game(String id, String name, String image, String release_date, String trailer, List<String> platforms) {
-        this.id = id;
-        this.name = name;
-        this.image = image;
-        this.release_date = release_date;
-        this.trailer = trailer;
-        this.platforms = platforms;
-    }
-
     public String getId() {
         return id;
     }

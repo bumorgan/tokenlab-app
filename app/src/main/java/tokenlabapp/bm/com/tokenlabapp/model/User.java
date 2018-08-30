@@ -11,18 +11,6 @@ public class User {
     private String country;
     private String token;
 
-    public User(String name, String lastname, String avatar, String email, String birthday, String address, String city, String country, String token) {
-        this.name = name;
-        this.lastname = lastname;
-        this.avatar = avatar;
-        this.email = email;
-        this.birthday = birthday;
-        this.address = address;
-        this.city = city;
-        this.country = country;
-        this.token = token;
-    }
-
     public String getName() {
         return name;
     }
@@ -53,9 +41,5 @@ public class User {
 
     public String getCountry() {
         return country;
-    }
-
-    public String getToken() {
-        return token;
     }
 }

@@ -28,11 +28,11 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.GameViewHolder>{
     }
 
     public static class GameViewHolder extends RecyclerView.ViewHolder {
-        private TextView gameName;
-        private TextView releaseDate;
-        private TextView platforms;
-        private ImageView gameImage;
-        private Button trailerButton;
+        TextView gameName;
+        TextView releaseDate;
+        TextView platforms;
+        ImageView gameImage;
+        Button trailerButton;
 
         GameViewHolder(final View itemView) {
             super(itemView);
@@ -41,18 +41,6 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.GameViewHolder>{
             platforms = itemView.findViewById(R.id.platforms);
             gameImage = itemView.findViewById(R.id.game_image);
             trailerButton = itemView.findViewById(R.id.trailer_button);
-        }
-        public TextView getGameName() {
-            return gameName;
-        }
-        public TextView getReleaseDate() {
-            return releaseDate;
-        }
-        public TextView getPlatforms() {
-            return platforms;
-        }
-        public ImageView getGameImage() {
-            return gameImage;
         }
     }
 
@@ -71,17 +59,17 @@ public class RVAdapter extends RecyclerView.Adapter<RVAdapter.GameViewHolder>{
     @Override
     public void onBindViewHolder(final GameViewHolder gameViewHolder, final int i) {
         if (games.get(i).getName() != null)
-            gameViewHolder.getGameName().setText(games.get(i).getName());
+            gameViewHolder.gameName.setText(games.get(i).getName());
         if (games.get(i).getRelease_date() != null)
-            gameViewHolder.getReleaseDate().setText("Release date: " + games.get(i).getRelease_date());
+            gameViewHolder.releaseDate.setText("Release date: " + games.get(i).getRelease_date());
         if (games.get(i).getPlatforms() != null)
-            gameViewHolder.getPlatforms().setText("Platforms: " + TextUtils.join(", ", games.get(i).getPlatforms()));
+            gameViewHolder.platforms.setText("Platforms: " + TextUtils.join(", ", games.get(i).getPlatforms()));
         if (games.get(i).getImage() != null)
             Picasso.get()
                     .load(games.get(i).getImage())
                     .placeholder(R.drawable.loading)
                     .error(R.drawable.imagenotfound)
-                    .into(gameViewHolder.getGameImage());
+                    .into(gameViewHolder.gameImage);
         if (games.get(i).getTrailer() != null) {
             gameViewHolder.trailerButton.setOnClickListener(new View.OnClickListener() {
                 @Override
