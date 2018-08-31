@@ -83,7 +83,7 @@ public class UserFragment extends Fragment {
     }
 
     private void initProgressBar(View view) {
-        progressBar = view.findViewById(R.id.userProgressBar);
+        progressBar = view.findViewById(R.id.user_progress_bar);
     }
 
     private void showProgressBar(boolean show) {
@@ -91,27 +91,27 @@ public class UserFragment extends Fragment {
     }
 
     private void initUserImage(View view) {
-        userImage = view.findViewById(R.id.userImage);
+        userImage = view.findViewById(R.id.user_image);
     }
 
     private void initUserName(View view) {
-        userName = view.findViewById(R.id.userName);
+        userName = view.findViewById(R.id.user_name);
     }
 
     private void initUserEmail (View view) {
-        userEmail = view.findViewById(R.id.userEmail);
+        userEmail = view.findViewById(R.id.user_email);
     }
 
     private void initUserBirthday(View view) {
-        userBirthday = view.findViewById(R.id.userBirthday);
+        userBirthday = view.findViewById(R.id.user_birthday);
     }
 
     private void initUserAdress(View view) {
-        userAddress = view.findViewById(R.id.userAddress);
+        userAddress = view.findViewById(R.id.user_address);
     }
 
     private void initUserCity(View view) {
-        userCity = view.findViewById(R.id.userCity);
+        userCity = view.findViewById(R.id.user_city);
     }
 
     private void initCall() {

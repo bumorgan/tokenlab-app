@@ -52,7 +52,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void initProgressBar(View view) {
-        progressBar = view.findViewById(R.id.homeProgressBar);
+        progressBar = view.findViewById(R.id.home_progress_bar);
     }
 
     private void showProgressBar(boolean show) {
@@ -60,7 +60,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void initRecyclerView(View view) {
-        recyclerView = view.findViewById(R.id.recyclerView);
+        recyclerView = view.findViewById(R.id.home_recycler_view);
         recyclerView.setHasFixedSize(true);
     }
 

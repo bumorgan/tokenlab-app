@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp">
         <ProgressBar
-            android:id="@+id/userProgressBar"
+            android:id="@+id/user_progress_bar"
             android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <ImageView
-                android:id="@+id/userImage"
+                android:id="@+id/user_image"
                 android:scaleType="centerCrop"
                 android:layout_width="match_parent"
                 android:layout_height="250dp" />
@@ -29,25 +29,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <TextView
-                    android:id="@+id/userName"
+                    android:id="@+id/user_name"
                     android:textColor="@color/colorAccent"
                     android:textSize="25dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
-                    android:id="@+id/userEmail"
+                    android:id="@+id/user_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
-                    android:id="@+id/userBirthday"
+                    android:id="@+id/user_birthday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
-                    android:id="@+id/userAddress"
+                    android:id="@+id/user_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
-                    android:id="@+id/userCity"
+                    android:id="@+id/user_city"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
