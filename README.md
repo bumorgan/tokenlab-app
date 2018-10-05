@@ -1,3 +1,3 @@
 # tokenlab-app
 
-Este app foi desenvolvido como parte do processo seletivo para Desenvolvedor Mobile na empresa TokenLab!
+Este app Android feito em Java (Android Studio) foi desenvolvido como parte do processo seletivo para Desenvolvedor Mobile na empresa TokenLab!
